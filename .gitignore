@@ -1,0 +1,113 @@
+# .NET Core directories
+/bin/
+/obj/
+
+# Entity Framework directories
+/EFMigrations/
+/EntityFramework/
+/EntityFramework.SqlServer/
+!/EntityFramework.SqlServer/*.cs
+
+# Swashbuckle
+/Swagger/
+
+# Test output
+/test_results/
+/xunit-results/
+
+# FluentAssertions
+/FluentAssertions.Temp/
+
+# IDE specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstate
+
+# Logs
+*.log
+*.tmp
+
+# Visual Studio temporary files, build results, and the .vs directory
+/vs/
+/.vs/
+
+# Moq
+/Moq.AutoMock/*.dll
+
+# Other specific directories and files
+*.userprefs
+*.appxrecipe
+*.suo
+*.userosscache
+*.suo
+*.cache
+*.bak
+
+# Dotnet restore and build outputs
+/project.lock.json
+/project.json
+/dotnet.*
+/.nuget/
+/.idea/
+.idea/workspace.xml
+
+# Ignore all the build and test output
+/coverage-report/
+/bin/
+/obj/
+/artifacts/
+/test_results/
+*.bak
+*.userprefs
+*.suo
+*.userosscache
+*.sln.docstate
+*.sln.docfx.json
+*.sln.fnal
+*.suo
+*.nupkg
+*.nuspec
+
+# Ignore all local config and temp files
+*.suo
+*.user
+*.userosscache
+*.sln.docstate
+*.ncrunchstate
+*.vspscc
+*.vssscc
+
+# Windows thumbnail cache files:
+Thumbs.db
+ehthumbs.db
+
+# Environments and builds
+/**/*.user
+/**/*.userosscache
+/**/*.suo
+/**/*.vspscc
+/**/*.scc
+/*.suo
+/*.scc
+*.suo
+*.scc
+*.suo
+*.userosscache
+*.user
+*.userosscache
+
+# .NET temporary files
+*.user
+*.userosscache
+*.vspscc
+*.suo
+
+# NuGet package manager backups
+*.suo
+*.user
+*.userosscache
+*.sln.docstate
+
+# Swashbuckle cache
+/Swagger/*.cache

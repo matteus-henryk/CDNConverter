@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{395D3CDD-69C6-4741-8B03-D8763FAB09CD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{0ED90B73-D0FE-4DAC-98DB-FD3F1567C29B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CDNConverter.API", "src\CDNConverter.API.csproj", "{CE050B0F-7CAA-488E-B6FA-C4DE46A16D82}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CDNConverted.Tests", "tests\CDNConverted.Tests.csproj", "{E3AD7D03-B66B-4550-BED0-44C6E1F4FE4B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CE050B0F-7CAA-488E-B6FA-C4DE46A16D82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE050B0F-7CAA-488E-B6FA-C4DE46A16D82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE050B0F-7CAA-488E-B6FA-C4DE46A16D82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE050B0F-7CAA-488E-B6FA-C4DE46A16D82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3AD7D03-B66B-4550-BED0-44C6E1F4FE4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3AD7D03-B66B-4550-BED0-44C6E1F4FE4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3AD7D03-B66B-4550-BED0-44C6E1F4FE4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3AD7D03-B66B-4550-BED0-44C6E1F4FE4B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CE050B0F-7CAA-488E-B6FA-C4DE46A16D82} = {395D3CDD-69C6-4741-8B03-D8763FAB09CD}
+		{E3AD7D03-B66B-4550-BED0-44C6E1F4FE4B} = {0ED90B73-D0FE-4DAC-98DB-FD3F1567C29B}
+	EndGlobalSection
+EndGlobal
