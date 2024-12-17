@@ -3,7 +3,8 @@
 /obj/
 
 # Entity Framework directories
-/EFMigrations/
+/EFMigrations
+/src/Infrastructure/Migrations
 /EntityFramework/
 /EntityFramework.SqlServer/
 !/EntityFramework.SqlServer/*.cs
@@ -55,7 +56,13 @@
 # Ignore all the build and test output
 /coverage-report/
 /bin/
-/obj/
+/obj
+/src/bin/
+/src/obj/
+/src/bin/
+tests/bin/
+tests/obj/
+tests/bin/
 /artifacts/
 /test_results/
 *.bak
