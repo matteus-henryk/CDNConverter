@@ -1,4 +1,4 @@
-# CDNConverter API 🍃
+# CDNConverter API 
 
 ### Essa aplicação usa as seguintes tecnologias: .NET 2.1, Entity Framework Core, SQL Server, XUnit e Moq  🛠
 
@@ -15,7 +15,7 @@ Essa aplicação foi construida para converter logs do formato "MINHA CDN" para 
 | Swashbuckle 5.0.0   | Documentação da API com Swagger |
 | FluentValidation 8.6.3   | Banco de dados utilizado |
 | Moq 4.10.1    | Mocking de serviços e dependências |
-| xUnit    | Banco de dados utilizado |
+| xUnit 2.4.1    | Banco de dados utilizado |
 | SQL Server    | Framework de teste |
 
 #### Funcionalidades  ✅
