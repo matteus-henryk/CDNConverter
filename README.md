@@ -1,110 +1,65 @@
-# Konoha Banking System API 🍃
+# CDNConverter API 🍃
 
-### This application developed using the following technologies: NodeJS, TypeScript, NestJS, Fastify, Swagger, PostgreSQL, Docker  🛠
+### Essa aplicação usa as seguintes tecnologias: .NET 2.1, Entity Framework Core, SQL Server, XUnit e Moq  🛠
 
-[![Node.JS](https://img.shields.io/badge/-Node.JS-339933?logo=node.js&logoColor=white)](https://nodejs.org/en/) [![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/) [![NestJS](https://img.shields.io/badge/-NestJS-black?logo=nestjs&logoColor=red)](https://nestjs.com) [![Swagger](https://img.shields.io/badge/-Swagger-green?logo=swagger&logoColor=white)](https://swagger.io) [![PostgreSQL](https://img.shields.io/badge/-Postgres-grey?logo=postgresql&logoColor=white)](https://www.postgresql.org/) [![Docker](https://img.shields.io/badge/-Docker-2496ed?logo=docker&logoColor=white)](https://docs.docker.com/)
-
-This banking system was developed using Clean Archtecture concepts.
+Essa aplicação foi construida para converter logs do formato "MINHA CDN" para "AGORA"
 
 
-#### Requirements ✅
+#### Requisitos ✅
 
 | Required  | Usage |
 | ------------- | -------------- |
-| Node 20.13.1     | For local deployment |
-| npm 10.5.2     | For local deployment |
-| Docker 3.x    | For containerizing the database |
+| .NET 2.1     | Para implantação local |
+| Visual Studio 2022     | Para desenvolvimento e build |
+| Entity Framework Core 2.1.1   | Para acesso ao banco de dados SQL Server |
+| Swashbuckle 5.0.0   | Documentação da API com Swagger |
+| FluentValidation 8.6.3   | Banco de dados utilizado |
+| Moq 4.10.1    | Mocking de serviços e dependências |
+| xUnit    | Banco de dados utilizado |
+| SQL Server    | Framework de teste |
 
-#### Resources available ✅
+#### Funcionalidades  ✅
 
 | Status | Requisitos |
 | ------------- | -------------- |
-| ✅     | Create an account |
-| ✅    | Make a deposit|
-| ✅    | Get account balance |
-| ✅ | Get account statement |
-| ✅ | Transfer amount between two accounts |
-| ✅ | Make a withdrawal |
+| ✅     | Salvar log "MINHA CDN" |
+| ✅    | Converter log "MINHA CDN" para "AGORA" por um arquivo .txt ou identificador existente na base |
+| ✅    | Retornar logs "MINHA CDN" informações do banco ou arquivo .txt |
+| ✅ | Retornar logs "AGORA" informações do banco ou arquivo .txt |
+| ✅ | Retornar logs "AGORA" e "MINHA CDN" por identificador "AGORA" |
 
 
-## Running the application 🍃
+## Rodando a aplicação 
 
-#### Info: I was not able to containerize the entire app, because there is an issue with Mac and Docker ports exposure. But there is a sever service inside the docker-compose that you can play with if you wish.
-
-
-🔴 After cloning the project, you need to create a .env file, you can just rename the .env.example on the project and it should work just fine.
-
-Now run the following command to start the project locally:
-
+## 1. Clone o repositorio
 ```bash
-npm run deploy:locally
-```
-> This command installs all dependencies, builds the postgres image on Docker, runs prisma generate and migrations, to finally start the project locally.
-
-#### You can check the Swagger documentation on the following URL: 📜
-
-```bash
-http://localhost:3000/api
-```
-#### If the applications is running smoothly, you should see the Swagger UI as the image below:
-![Swagger](.github/media/swagger-localhost.png)
-
-## Database Structure 🧮
-
-The reason why chose this structure is because it keeps the data consistent and solid, even though there is redunduncy in it:
-
-
-![DB UML](.github/media/db-uml.png)
-
-## To run the all tests simply execute: 
-
-```bash
-npm run api:tests
-```
-![Tests](.github/media/tests.png)
-
-#### Known issue: If you get an error executing the app.spec.ts, you have to delete manually the postgres container, image and volume. For some reason sometimes the data is not cleaned.
-
-
-# This section is to run the project step by step manually 📋
-
-- Create Postgres docker container
-```bash
-docker compose up -d
-```
-- Install dependencies
-```bash
-npm i
-```
-- Generate Prisma Client files
-
-```bash
-npx run prisma generate
-```
-- Run migrations
-```bash
-npx prisma migrate dev --name init
-```
-- Start the project
-```bash
-npm start
+git clone [URL_DO_REPOSITORIO]
+cd CDNConverter
 ```
 
-## Understanding the folder structure 🗂
+## 2. No arquivo `appsettings.json`, adicione a seguinte configuração para a connection string e outros parâmetros relevantes:
 
-    ├── .github           # Github media and possibly actions
-    ├── prisma            # Prisma files with migration and database schema 
-    ├── src               # Source files of the application
-    │   ├── accounts      # Accounts module
-    │   └── transactions  # Módulos da aplicação
-    └── ...
-## Understanding the application module folder structure 🗂
+```json
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=your-database-server;Database=your-database-name;User Id=your-username;Password=your-password;"
+  }
+}
+```
+## 3. Compile e execute a aplicação:
+```bash
+dotnet run --project CDNConverter.API
+```
+## 4. Acesse a documentação Swagger:
+```bash
+https://localhost:44398/index.html
+```
+Se a aplicação estiver rodando corretamente, você verá a interface do Swagger
 
-    src
-    ├── accounts          # Accounts module
-    │    ├── use-cases    # Account use cases for each user action with tests
-    │    └── dto          # Data-transfer-object data
-    ├── transactions      # Source files of the application
-    │    ├── use-cases    # Transaction use cases for each user action with tests
-    │    └── dto          
-    └── ...
+## Testes 
+Com o uso do xUnit e Moq, você pode criar e rodar testes automatizados para garantir a qualidade do seu sistema.
+
+Comandos para rodar testes:
+```bash
+dotnet test
+```
