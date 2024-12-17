@@ -9,7 +9,7 @@ Essa aplicação foi construida para converter logs do formato "MINHA CDN" para 
 
 | Required  | Usage |
 | ------------- | -------------- |
-| .NET 2.1     | Para implantação local |
+| .NET Core 2.1     | Para implantação local |
 | Visual Studio 2022     | Para desenvolvimento e build |
 | Entity Framework Core 2.1.1   | Para acesso ao banco de dados SQL Server |
 | Swashbuckle 5.0.0   | Documentação da API com Swagger |
