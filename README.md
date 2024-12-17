@@ -2,6 +2,8 @@
 
 ### Essa aplicação usa as seguintes tecnologias: .NET Core 2.1, Entity Framework Core, SQL Server, XUnit e Moq  🛠
 
+A aplicação foi construida com conceitos de Clean Architecture, SOLID e POO
+
 Essa aplicação foi construida para converter logs do formato "MINHA CDN" para "AGORA"
 
 
