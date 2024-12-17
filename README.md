@@ -1,6 +1,6 @@
 # CDNConverter API 
 
-### Essa aplicação usa as seguintes tecnologias: .NET 2.1, Entity Framework Core, SQL Server, XUnit e Moq  🛠
+### Essa aplicação usa as seguintes tecnologias: .NET Core 2.1, Entity Framework Core, SQL Server, XUnit e Moq  🛠
 
 Essa aplicação foi construida para converter logs do formato "MINHA CDN" para "AGORA"
 
