@@ -108,7 +108,7 @@ namespace CDNConverter.API.Controllers
         /// Converte um log no formato "MINHA CDN" para "AGORA" salva na base e diretorio
         /// </summary>
         /// <param name="file">Arquivo .txt no formato "MINHA CDN"</param>
-        /// <returns>Retorna as informações da base do log "AGORA"</returns>
+        /// <returns>Retorna as informações da base do log "AGORA "</returns>
         [HttpPost("convert")]
         [Produces(typeof(ResponseConvertedLogJson))]
         [ProducesResponseType(typeof(BadRequestObjectResult), StatusCodes.Status400BadRequest)]
