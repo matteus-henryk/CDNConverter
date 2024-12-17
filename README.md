@@ -15,10 +15,10 @@ Essa aplicação foi construida para converter logs do formato "MINHA CDN" para 
 | Visual Studio 2022     | Para desenvolvimento e build |
 | Entity Framework Core 2.1.1   | Para acesso ao banco de dados SQL Server |
 | Swashbuckle 5.0.0   | Documentação da API com Swagger |
-| FluentValidation 8.6.3   | Banco de dados utilizado |
+| FluentValidation 8.6.3   | Framework para validações |
 | Moq 4.10.1    | Mocking de serviços e dependências |
-| xUnit 2.4.1    | Banco de dados utilizado |
-| SQL Server    | Framework de teste |
+| xUnit 2.4.1    | Framework de testes |
+| SQL Server    | Banco de dados utilizado |
 
 #### Funcionalidades  ✅
 
