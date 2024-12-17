@@ -47,20 +47,16 @@ cd CDNConverter
 }
 ```
 
-## 3. Rodar as migrations
-```bash
-dotnet ef migrations add MigrationName
-```
-## 4. Aplicar as migrations
+## 3. Aplicar as migrations
 ```bash
 dotnet ef database update
 ```
 
-## 5. Compile e execute a aplicação:
+## 4. Compile e execute a aplicação:
 ```bash
 dotnet run --project CDNConverter.API
 ```
-## 6. Acesse a documentação Swagger:
+## 5. Acesse a documentação Swagger:
 ```bash
 https://localhost:44398/index.html
 ```
