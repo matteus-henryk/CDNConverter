@@ -37,7 +37,7 @@ git clone https://github.com/matteus-henryk/CDNConverter.git
 cd CDNConverter
 ```
 
-## 2. No arquivo `appsettings.json`, adicione a seguinte configuração para a connection string e outros parâmetros relevantes:
+## 2. No arquivo `appsettings.json`, adicione a seguinte configuração para a connectionString:
 
 ```json
 {
