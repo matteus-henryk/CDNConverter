@@ -33,7 +33,7 @@ Essa aplicação foi construida para converter logs do formato "MINHA CDN" para 
 
 ## 1. Clone o repositorio
 ```bash
-git clone [URL_DO_REPOSITORIO]
+git clone https://github.com/matteus-henryk/CDNConverter.git
 cd CDNConverter
 ```
 
