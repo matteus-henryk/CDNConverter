@@ -47,11 +47,11 @@ cd CDNConverter
 }
 ```
 
-## 3. Adicionar novas migrations
+## 3. Rodar as migrations
 ```bash
 dotnet ef migrations add MigrationName
 ```
-## 4. Adicionar novas migrations
+## 4. Aplicar as migrations
 ```bash
 dotnet ef database update
 ```
