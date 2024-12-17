@@ -12,7 +12,7 @@ namespace CDNConverter.API.Application.Services
         {
             await id.ValidateAsync();
 
-            var originalLogDirectory = $"{Directory.GetCurrentDirectory()}\\OriginalLogs";
+            var originalLogDirectory = $"{Directory.GetCurrentDirectory()}\\Uploads\\OriginalLogs";
 
             var fullPath = Path.Combine(originalLogDirectory, id + "_Original.txt");
 

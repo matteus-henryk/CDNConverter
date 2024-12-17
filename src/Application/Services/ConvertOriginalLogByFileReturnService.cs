@@ -28,7 +28,7 @@ namespace CDNConverter.API.Application.Services
 
             var originalLog = await _createOriginalLogService.ExecuteAsync(file);
 
-            var convertedLogDirectory = $"{Directory.GetCurrentDirectory()}\\ConvertedLogs";
+            var convertedLogDirectory = $"{Directory.GetCurrentDirectory()}\\Uploads\\ConvertedLogs";
 
             byte[] fileByte;
 

@@ -27,7 +27,8 @@ namespace CDNConverter.API.Controllers
         {
             var result = service.Execute();
 
-            if (result == null) return NotFound(ResourceResponseMessages.NOTFOUND_LOGS);
+            if (result == null) 
+                return NotFound(ResourceResponseMessages.NOTFOUND_LOGS);
 
             return Ok(result);
         }
@@ -77,9 +78,10 @@ namespace CDNConverter.API.Controllers
         {
             var result = await service.ExecuteAsync();
 
-            if (result == null) return NotFound(ResourceResponseMessages.NOTFOUND_LOGS);
+            if (result == null) 
+                return NotFound(ResourceResponseMessages.NOTFOUND_LOGS);
 
-            return File(result, "application/zip", $"OriginalsLogs{DateTime.UtcNow}.zip");
+            return File(result, "application/zip", $"OriginalsLogs{DateTime.UtcNow.Date.ToString("dd/MM/yyyy")}.zip");
         }
 
         /// <summary>
@@ -95,7 +97,8 @@ namespace CDNConverter.API.Controllers
         {
             var result = await service.ExecuteAsync(id);
 
-            if (result == null) return NotFound(ResourceResponseMessages.NOTFOUND_LOG);
+            if (result == null) 
+                return NotFound(ResourceResponseMessages.NOTFOUND_LOG);
 
             return File(result, "text/plain", $"{id}_Original.txt");
         }
@@ -175,9 +178,10 @@ namespace CDNConverter.API.Controllers
         {
             var result = await service.ExecuteAsync();
 
-            if (result == null) return NotFound(ResourceResponseMessages.NOTFOUND_LOGS);
+            if (result == null) 
+                return NotFound(ResourceResponseMessages.NOTFOUND_LOGS);
 
-            return File(result, "application/zip", $"OriginalsLogs{DateTime.UtcNow}.zip");
+            return File(result, "application/zip", $"ConvertedLogs{DateTime.UtcNow.Date.ToString("dd/MM/yyyy")}.zip");
         }
 
         /// <summary>
@@ -209,7 +213,8 @@ namespace CDNConverter.API.Controllers
         {
             var result = await service.ExecuteAsync(id);
 
-            if (result == null) NotFound(ResourceResponseMessages.NOTFOUND_LOG);
+            if (result == null) 
+                return NotFound(ResourceResponseMessages.NOTFOUND_LOG);
 
             return Ok(result);
         }

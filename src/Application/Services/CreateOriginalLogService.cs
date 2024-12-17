@@ -24,7 +24,7 @@ namespace CDNConverter.API.Application.Services
         {
             await file.ValidateAsync();
 
-            var originalLogDirectory = $"{Directory.GetCurrentDirectory()}\\OriginalLogs";
+            var originalLogDirectory = $"{Directory.GetCurrentDirectory()}\\Uploads\\OriginalLogs";
 
             byte[] fileBytes;
             using (var memoryStream = new MemoryStream())

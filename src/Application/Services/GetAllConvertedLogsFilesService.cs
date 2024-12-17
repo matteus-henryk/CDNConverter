@@ -10,7 +10,7 @@ namespace CDNConverter.API.Application.Services
 
         public async Task<byte[]> ExecuteAsync()
         {
-            var originalLogDirectory = $"{Directory.GetCurrentDirectory()}\\OriginalLogs";
+            var originalLogDirectory = $"{Directory.GetCurrentDirectory()}\\Uploads\\ConvertedLogs";
 
             var memoryStream = new MemoryStream();
 

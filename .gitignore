@@ -63,6 +63,7 @@
 tests/bin/
 tests/obj/
 tests/bin/
+/src/Uploads
 /artifacts/
 /test_results/
 *.bak

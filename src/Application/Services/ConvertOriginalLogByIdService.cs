@@ -33,7 +33,7 @@ namespace CDNConverter.API.Application.Services
 
             var originalLogFile = await File.ReadAllBytesAsync(fullPath);
 
-            var convertedLogDirectory = $"{Directory.GetCurrentDirectory()}\\ConvertedLogs";
+            var convertedLogDirectory = $"{Directory.GetCurrentDirectory()}\\Uploads\\ConvertedLogs";
 
             var convertedLog = new ConvertedLog();
             await convertedLog.ConvertAndSaveLogFile(originalLogFile, convertedLogDirectory);
