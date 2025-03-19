@@ -65,7 +65,7 @@ https://documenter.getpostman.com/view/12668698/2sAYkErfZ4
 ```
 Se a aplicação estiver rodando corretamente, você verá a interface do Swagger
 
-Comandos para rodar testes:
+Comando para rodar testes:
 ```bash
 dotnet test
 ```
