@@ -56,7 +56,7 @@ dotnet run --project CDNConverter.API
 
 ## 4. Aplicar as migrations
 ```bash
-dotnet ef database update
+dotnet ef database update --project /CDNConverter.API --startup-project /CDNConverter.API
 ```
 
 ## 5. Acesse a documentação Swagger:
