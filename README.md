@@ -59,14 +59,11 @@ dotnet run --project CDNConverter.API
 dotnet ef database update --project /CDNConverter.API --startup-project /CDNConverter.API
 ```
 
-## 5. Acesse a documentação Swagger:
+## 5. Acesse a documentação Postman:
 ```bash
-https://localhost:44398/index.html
+https://documenter.getpostman.com/view/12668698/2sAYkErfZ4
 ```
 Se a aplicação estiver rodando corretamente, você verá a interface do Swagger
-
-## Testes 
-Com o uso do xUnit e Moq, você pode criar e rodar testes automatizados para garantir a qualidade do seu sistema.
 
 Comandos para rodar testes:
 ```bash
