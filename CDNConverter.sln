@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{0ED90B73
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CDNConverter.API", "src\CDNConverter.API.csproj", "{CE050B0F-7CAA-488E-B6FA-C4DE46A16D82}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CDNConverted.Tests", "tests\CDNConverted.Tests.csproj", "{E3AD7D03-B66B-4550-BED0-44C6E1F4FE4B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CDNConverter.Tests", "tests\CDNConverter.Tests.csproj", "{E3AD7D03-B66B-4550-BED0-44C6E1F4FE4B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

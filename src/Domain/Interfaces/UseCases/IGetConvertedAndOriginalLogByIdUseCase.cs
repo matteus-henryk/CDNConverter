@@ -2,9 +2,9 @@
 using System;
 using CDNConverter.API.Shared.Comunication;
 
-namespace CDNConverter.API.Domain.Interfaces.Services
+namespace CDNConverter.API.Domain.Interfaces.UseCases
 {
-    public interface IGetConvertedAndOriginalLogByIdService
+    public interface IGetConvertedAndOriginalLogByIdUseCase
     {
         Task<ResponseConvertedLogJson> ExecuteAsync(Guid id);
     }

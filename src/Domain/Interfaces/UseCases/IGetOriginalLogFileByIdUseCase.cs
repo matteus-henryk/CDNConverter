@@ -1,9 +1,9 @@
 ﻿using System.Threading.Tasks;
 using System;
 
-namespace CDNConverter.API.Domain.Interfaces.Services
+namespace CDNConverter.API.Domain.Interfaces.UseCases
 {
-    public interface IGetOriginalLogFileByIdService
+    public interface IGetOriginalLogFileByIdUseCase
     {
         Task<byte[]> ExecuteAsync(Guid id);
     }

@@ -1,17 +1,17 @@
 ﻿using CDNConverter.API.Domain.Interfaces.Repositories;
-using CDNConverter.API.Domain.Interfaces.Services;
+using CDNConverter.API.Domain.Interfaces.UseCases;
 using CDNConverter.API.Extentions;
 using CDNConverter.API.Shared.Comunication;
 using System;
 using System.Threading.Tasks;
 
-namespace CDNConverter.API.Application.Services
+namespace CDNConverter.API.Application.UseCases
 {
-    public class GetConvertedAndOriginalLogByIdService : IGetConvertedAndOriginalLogByIdService
+    public class GetConvertedAndOriginalLogByIdUseCase : IGetConvertedAndOriginalLogByIdUseCase
     {
         private readonly ILogReadOnlyRepository _logReadOnlyRepository;
 
-        public GetConvertedAndOriginalLogByIdService(ILogReadOnlyRepository logReadOnlyRepository)
+        public GetConvertedAndOriginalLogByIdUseCase(ILogReadOnlyRepository logReadOnlyRepository)
         {
             _logReadOnlyRepository = logReadOnlyRepository;
         }

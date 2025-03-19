@@ -1,9 +1,9 @@
 ﻿using CDNConverter.API.Shared.Comunication;
 using System.Collections.Generic;
 
-namespace CDNConverter.API.Domain.Interfaces.Services
+namespace CDNConverter.API.Domain.Interfaces.UseCases
 {
-    public interface IGetAllOriginalLogsService
+    public interface IGetAllOriginalLogsUseCase
     {
         List<ResponseOriginalLogJson> Execute();
     }

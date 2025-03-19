@@ -9,12 +9,12 @@ namespace CDNConverted.Tests.Application
 {
     public class GetAllOriginalLogsServiceTest : ServicesBaseTests
     {
-        private GetAllOriginalLogsService _service;
+        private GetAllOriginalLogsUseCase _service;
 
         [Fact]
         public void When_GetAllOriginalLogsServiceTest_Should_Return_List()
         {
-            _service = new GetAllOriginalLogsService(_logReadOnlyRepository.Object);
+            _service = new GetAllOriginalLogsUseCase(_logReadOnlyRepository.Object);
 
             _logReadOnlyRepository.Setup(repo => repo.GetAllOriginalsLogs())
                 .Returns(new List<OriginalLog>());
@@ -27,7 +27,7 @@ namespace CDNConverted.Tests.Application
         [Fact]
         public void When_GetAllOriginalLogsServiceTest_Should_Return_Null()
         {
-            _service = new GetAllOriginalLogsService(_logReadOnlyRepository.Object);
+            _service = new GetAllOriginalLogsUseCase(_logReadOnlyRepository.Object);
 
             _logReadOnlyRepository.Setup(repo => repo.GetAllOriginalsLogs())
                 .Returns((List<OriginalLog>)null);

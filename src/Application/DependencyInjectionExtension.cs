@@ -1,5 +1,5 @@
-﻿using CDNConverter.API.Application.Services;
-using CDNConverter.API.Domain.Interfaces.Services;
+﻿using CDNConverter.API.Application.UseCases;
+using CDNConverter.API.Domain.Interfaces.UseCases;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CDNConverter.API.Application
@@ -13,18 +13,19 @@ namespace CDNConverter.API.Application
 
         private static void AddServices(IServiceCollection services)
         {
-            services.AddScoped<IGetConvertedAndOriginalLogByIdService, GetConvertedAndOriginalLogByIdService>();
-            services.AddScoped<IGetAllConvertedAndOriginalLogsService, GetAllConvertedAndOriginalLogsService>();
-            services.AddScoped<IGetAllConvertedLogsFilesService, GetAllConvertedLogsFilesService>();
-            services.AddScoped<IGetAllOriginalLogsService, GetAllOriginalLogsService>();
-            services.AddScoped<IGetOriginalLogByIdService, GetOriginalLogByIdService>();
-            services.AddScoped<ICreateOriginalLogService, CreateOriginalLogService>();
-            services.AddScoped<IGetAllOriginalLogsFileZipService, GetAllOriginalLogsFileZipService>();
-            services.AddScoped<IGetOriginalLogFileByIdService, GetOriginalLogFileByIdService>();
-            services.AddScoped<IConvertOriginalLogByFileService, ConvertOriginalLogByFileService>();
-            services.AddScoped<IConvertOriginalLogByIdService, ConvertOriginalLogByIdService>();
-            services.AddScoped<IConvertOriginalLogByFileReturnService, ConvertOriginalLogByFileReturnService>();
-            services.AddScoped<IConvertOriginalLogByIdFileReturnService, ConvertOriginalLogByIdFileReturnService>();
+            services.AddScoped<IGetConvertedAndOriginalLogByIdUseCase, GetConvertedAndOriginalLogByIdUseCase>();
+            services.AddScoped<IGetAllConvertedAndOriginalLogsUseCase, GetAllConvertedAndOriginalLogsUseCase>();
+            services.AddScoped<IGetAllConvertedLogsFilesUseCase, GetAllConvertedLogsFilesUseCase>();
+            services.AddScoped<IGetAllOriginalLogsUseCase, GetAllOriginalLogsUseCase>();
+            services.AddScoped<IGetOriginalLogByIdUseCase, GetOriginalLogByIdUseCase>();
+            services.AddScoped<ICreateOriginalLogUseCase, CreateOriginalLogUseCase>();
+            services.AddScoped<IGetAllOriginalLogsFileZipUseCase, GetAllOriginalLogsFileZipUseCase>();
+            services.AddScoped<IGetOriginalLogFileByIdUseCase, GetOriginalLogFileByIdUseCase>();
+            services.AddScoped<IConvertOriginalLogByFileUseCase, ConvertOriginalLogByFileUseCase>();
+            services.AddScoped<IConvertOriginalLogByIdUseCase, ConvertOriginalLogByIdUseCase>();
+            services.AddScoped<IConvertOriginalLogByFileReturnUseCase, ConvertOriginalLogByFileReturnUseCase>();
+            services.AddScoped<IConvertOriginalLogByIdFileReturnUseCase, ConvertOriginalLogByIdFileReturnUseCase>();
+            services.AddScoped<IGetConvertedLogFileByIdUseCase, GetConvertedLogFileByIdUseCase>();
         }
     }
 }

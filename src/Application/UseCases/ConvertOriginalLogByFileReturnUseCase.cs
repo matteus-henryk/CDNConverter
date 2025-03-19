@@ -1,28 +1,29 @@
 ﻿using CDNConverter.API.Domain.Interfaces.Repositories;
-using CDNConverter.API.Domain.Interfaces.Services;
+using CDNConverter.API.Domain.Interfaces.UseCases;
 using CDNConverter.API.Extentions;
 using CDNConverter.API.Shared.Comunication;
-using CDNConverter.API.Domain.Entities;
 using Microsoft.AspNetCore.Http;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace CDNConverter.API.Application.Services
+namespace CDNConverter.API.Application.UseCases
 {
-    public class ConvertOriginalLogByFileService : IConvertOriginalLogByFileService
+    public class ConvertOriginalLogByFileReturnUseCase : IConvertOriginalLogByFileReturnUseCase
     {
         private readonly ILogWriteOnlyRepository _logWriteOnlyRepository;
         private readonly IUnitOfWork _unitOfWork;
-        private readonly ICreateOriginalLogService _createOriginalLogService;
+        private readonly ICreateOriginalLogUseCase _createOriginalLogService;
+        private readonly ILogDirectoryWriteOnlyRepository _logDirectoryWriteOnlyRepository;
 
-        public ConvertOriginalLogByFileService(ILogWriteOnlyRepository logWriteOnlyRepository, IUnitOfWork unitOfWork, ICreateOriginalLogService createOriginalLogService)
+        public ConvertOriginalLogByFileReturnUseCase(ILogWriteOnlyRepository logWriteOnlyRepository, IUnitOfWork unitOfWork, ICreateOriginalLogUseCase createOriginalLogService, ILogDirectoryWriteOnlyRepository logDirectoryWriteOnlyRepository)
         {
             _logWriteOnlyRepository = logWriteOnlyRepository;
             _unitOfWork = unitOfWork;
             _createOriginalLogService = createOriginalLogService;
+            _logDirectoryWriteOnlyRepository = logDirectoryWriteOnlyRepository;
         }
 
-        public async Task<ResponseConvertedLogJson> ExecuteAsync(IFormFile file)
+        public async Task<ResponseConvertedLogFileJson> ExecuteAsync(IFormFile file)
         {
             await file.ValidateAsync();
 
@@ -38,20 +39,14 @@ namespace CDNConverter.API.Application.Services
                 fileByte = memoryStream.ToArray();
             }
 
-            var convertedLog = new ConvertedLog();
-            await convertedLog.ConvertAndSaveLogFile(fileByte, convertedLogDirectory);
+            var (convertedLog, convertedFileResult) = await _logDirectoryWriteOnlyRepository.ConvertAndSaveLog(fileByte);
+
             convertedLog.OriginalLogId = originalLog.OriginalLogId;
 
             await _logWriteOnlyRepository.SaveConvertedLog(convertedLog);
             await _unitOfWork.Commit();
 
-            return new ResponseConvertedLogJson
-            {
-                IdConvertedLog = convertedLog.Id,
-                PathConvertedLog = convertedLog.ConvertedLogPath,
-                OriginalLog = originalLog,
-                CreatedOnConvertedLog = convertedLog.CreatedOn,
-            };
+            return new ResponseConvertedLogFileJson { Id = convertedLog.Id, ConvertedLogFile = convertedFileResult };
         }
     }
 }

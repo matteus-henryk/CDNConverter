@@ -16,6 +16,8 @@ namespace CDNConverter.API.Infrastructure
         {
             services.AddScoped<ILogReadOnlyRepository, LogRepository>();
             services.AddScoped<ILogWriteOnlyRepository, LogRepository>();
+            services.AddScoped<ILogDirectoryReadOnlyRepository, LogDirectoryRepository>();
+            services.AddScoped<ILogDirectoryWriteOnlyRepository, LogDirectoryRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
     }

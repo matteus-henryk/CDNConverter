@@ -1,25 +1,26 @@
 ﻿using CDNConverter.API.Domain.Interfaces.Repositories;
-using CDNConverter.API.Domain.Interfaces.Services;
+using CDNConverter.API.Domain.Interfaces.UseCases;
 using CDNConverter.API.Extentions;
 using CDNConverter.API.Shared.Comunication;
-using CDNConverter.API.Domain.Entities;
 using System;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace CDNConverter.API.Application.Services
+namespace CDNConverter.API.Application.UseCases
 {
-    public class ConvertOriginalLogByIdService : IConvertOriginalLogByIdService
+    public class ConvertOriginalLogByIdUseCase : IConvertOriginalLogByIdUseCase
     {
         private readonly ILogWriteOnlyRepository _logWriteOnlyRepository;
         private readonly ILogReadOnlyRepository _logReadOnlyRepository;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly ILogDirectoryWriteOnlyRepository _logDirectoryWriteOnlyRepository;
 
-        public ConvertOriginalLogByIdService(ILogWriteOnlyRepository logWriteOnlyRepository, ILogReadOnlyRepository logReadOnlyRepository, IUnitOfWork unitOfWork)
+        public ConvertOriginalLogByIdUseCase(ILogWriteOnlyRepository logWriteOnlyRepository, ILogReadOnlyRepository logReadOnlyRepository, IUnitOfWork unitOfWork, ILogDirectoryWriteOnlyRepository logDirectoryWriteOnlyRepository)
         {
             _logWriteOnlyRepository = logWriteOnlyRepository;
             _logReadOnlyRepository = logReadOnlyRepository;
             _unitOfWork = unitOfWork;
+            _logDirectoryWriteOnlyRepository = logDirectoryWriteOnlyRepository;
         }
 
         public async Task<ResponseConvertedLogJson> ExecuteAsync(Guid id)
@@ -33,10 +34,8 @@ namespace CDNConverter.API.Application.Services
 
             var originalLogFile = await File.ReadAllBytesAsync(fullPath);
 
-            var convertedLogDirectory = $"{Directory.GetCurrentDirectory()}\\Uploads\\ConvertedLogs";
+            var (convertedLog, _) = await _logDirectoryWriteOnlyRepository.ConvertAndSaveLog(originalLogFile);
 
-            var convertedLog = new ConvertedLog();
-            await convertedLog.ConvertAndSaveLogFile(originalLogFile, convertedLogDirectory);
             convertedLog.OriginalLogId = originalLog.Id;
 
             await _logWriteOnlyRepository.SaveConvertedLog(convertedLog);

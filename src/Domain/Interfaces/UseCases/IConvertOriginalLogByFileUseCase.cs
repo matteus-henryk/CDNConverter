@@ -2,9 +2,9 @@
 using Microsoft.AspNetCore.Http;
 using System.Threading.Tasks;
 
-namespace CDNConverter.API.Domain.Interfaces.Services
+namespace CDNConverter.API.Domain.Interfaces.UseCases
 {
-    public interface IConvertOriginalLogByFileService
+    public interface IConvertOriginalLogByFileUseCase
     {
         Task<ResponseConvertedLogJson> ExecuteAsync(IFormFile file);
     }

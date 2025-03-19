@@ -1,4 +1,4 @@
-﻿using CDNConverter.API.Domain.Interfaces.Services;
+﻿using CDNConverter.API.Domain.Interfaces.UseCases;
 using CDNConverter.API.Shared.Comunication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -20,10 +20,10 @@ namespace CDNConverter.API.Controllers
         /// Busca todos os logs "MINHA CDN"
         /// </summary>
         /// <returns>Retorna uma lista de logs "MINHA CDN"</returns>
-        [HttpGet("")]
+        [HttpGet("CDN")]
         [Produces(typeof(List<ResponseOriginalLogJson>))]
         [ProducesResponseType(typeof(NotFoundObjectResult), StatusCodes.Status404NotFound)]
-        public IActionResult GetAllOriginalSavedLogs([FromServices] IGetAllOriginalLogsService service)
+        public IActionResult GetAllOriginalSavedLogs([FromServices] IGetAllOriginalLogsUseCase service)
         {
             var result = service.Execute();
 
@@ -38,11 +38,11 @@ namespace CDNConverter.API.Controllers
         /// </summary>
         /// <param name="id">Identificador "MINHA CDN"</param>
         /// <returns>Retorna um log "MINHA CDN"</returns>
-        [HttpGet("{id}")]
+        [HttpGet("CDN/{id}")]
         [Produces(typeof(ResponseOriginalLogJson))]
         [ProducesResponseType(typeof(NotFoundObjectResult), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(BadRequestObjectResult), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> GetOriginalLogById([FromServices] IGetOriginalLogByIdService service, [FromRoute] Guid id)
+        public async Task<IActionResult> GetOriginalLogById([FromServices] IGetOriginalLogByIdUseCase service, [FromRoute] Guid id)
         {
             var result = await service.ExecuteAsync(id);
 
@@ -53,14 +53,14 @@ namespace CDNConverter.API.Controllers
         }
 
         /// <summary>
-        /// Cria um log "MINHA CDN" no diretorio raiz e base dados 
+        /// Salva um log "MINHA CDN" no diretorio raiz e base dados 
         /// </summary>
         /// <param name="file">Arquivo .txt no formato "MINHA CDN"</param>
         /// <returns>Retorna os dados do log "MINHA CDN" salvo na base</returns>
-        [HttpPost("")]
+        [HttpPost("CDN")]
         [Produces(typeof(ResponseOriginalLogJson))]
         [ProducesResponseType(typeof(BadRequestObjectResult), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> SaveOriginalLog([FromServices] ICreateOriginalLogService service, IFormFile file)
+        public async Task<IActionResult> SaveOriginalLog([FromServices] ICreateOriginalLogUseCase service, IFormFile file)
         {
             var result = await service.ExecuteAsync(file);
 
@@ -71,10 +71,10 @@ namespace CDNConverter.API.Controllers
         /// Busca todos os logs "MINHA CDN" no diretorio 
         /// </summary>
         /// <returns>Retorna um arquivo zip com todos os arquivos .txt</returns>
-        [HttpGet("file")]
+        [HttpGet("CDN/file")]
         [Produces(typeof(byte[]))]
         [ProducesResponseType(typeof(NotFoundObjectResult), StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetAllOriginalSavedLogsFiles([FromServices] IGetAllOriginalLogsFileZipService service)
+        public async Task<IActionResult> GetAllOriginalSavedLogsFiles([FromServices] IGetAllOriginalLogsFileZipUseCase service)
         {
             var result = await service.ExecuteAsync();
 
@@ -85,15 +85,15 @@ namespace CDNConverter.API.Controllers
         }
 
         /// <summary>
-        /// Busca um log "MINHA CDN" no diretorio por identificado
+        /// Busca um log "MINHA CDN" no diretorio por identificador
         /// </summary>
         /// <param name="id">Identificador "MINHA CDN"</param>
         /// <returns>Retorna um arquivo .txt de log "MINHA CDN"</returns>
-        [HttpGet("file/{id}")]
+        [HttpGet("CDN/file/{id}")]
         [Produces(typeof(byte[]))]
         [ProducesResponseType(typeof(NotFoundObjectResult), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(BadRequestObjectResult), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> GetOriginalSavedLogFileById([FromServices] IGetOriginalLogFileByIdService service, [FromRoute] Guid id)
+        public async Task<IActionResult> GetOriginalSavedLogFileById([FromServices] IGetOriginalLogFileByIdUseCase service, [FromRoute] Guid id)
         {
             var result = await service.ExecuteAsync(id);
 
@@ -112,10 +112,10 @@ namespace CDNConverter.API.Controllers
         /// </summary>
         /// <param name="file">Arquivo .txt no formato "MINHA CDN"</param>
         /// <returns>Retorna as informações da base do log "AGORA "</returns>
-        [HttpPost("convert")]
+        [HttpPost("AGORA")]
         [Produces(typeof(ResponseConvertedLogJson))]
         [ProducesResponseType(typeof(BadRequestObjectResult), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> ConvertOriginalLogByFile([FromServices] IConvertOriginalLogByFileService service, IFormFile file)
+        public async Task<IActionResult> ConvertOriginalLogByFile([FromServices] IConvertOriginalLogByFileUseCase service, IFormFile file)
         {
             var result = await service.ExecuteAsync(file);
 
@@ -123,14 +123,14 @@ namespace CDNConverter.API.Controllers
         }
 
         /// <summary>
-        /// Converte um log no formato "MINHA CDN" para "AGORA" usando um identificador na base de um log "MINHA CDN"
+        /// Converte um log no formato "MINHA CDN" para "AGORA" usando um identificador de um log "MINHA CDN" na base
         /// </summary>
         /// <param name="id">Identificador "MINHA CDN"</param>
         /// <returns>Retorna as informações da base do log "AGORA"</returns>
-        [HttpPost("convert/{id}")]
+        [HttpPost("AGORA/{id}")]
         [Produces(typeof(ResponseConvertedLogJson))]
         [ProducesResponseType(typeof(BadRequestObjectResult), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> ConvertOriginalLogById([FromServices] IConvertOriginalLogByIdService service, [FromRoute] Guid id)
+        public async Task<IActionResult> ConvertOriginalLogById([FromServices] IConvertOriginalLogByIdUseCase service, [FromRoute] Guid id)
         {
             var result = await service.ExecuteAsync(id);
 
@@ -142,10 +142,10 @@ namespace CDNConverter.API.Controllers
         /// </summary>
         /// <param name="file">Arquivo .txt no formato "MINHA CDN"</param>
         /// <returns>Retorna um arquivo .txt do log "AGORA"</returns>
-        [HttpPost("convert/file")]
+        [HttpPost("AGORA/file")]
         [Produces(typeof(byte[]))]
         [ProducesResponseType(typeof(BadRequestObjectResult), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> ConvertOriginalLogByFileReturn([FromServices] IConvertOriginalLogByFileReturnService service, IFormFile file)
+        public async Task<IActionResult> ConvertOriginalLogByFileReturn([FromServices] IConvertOriginalLogByFileReturnUseCase service, IFormFile file)
         {
             var result = await service.ExecuteAsync(file);
 
@@ -157,10 +157,10 @@ namespace CDNConverter.API.Controllers
         /// </summary>
         /// <param name="id">Identificador "MINHA CDN"</param>
         /// <returns>Retorna um arquivo .txt do log "AGORA"</returns>
-        [HttpPost("convert/file/{id}")]
+        [HttpPost("AGORA/file/{id}")]
         [Produces(typeof(byte[]))]
         [ProducesResponseType(typeof(BadRequestObjectResult), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> ConvertOriginalLogByIdFileReturn([FromServices] IConvertOriginalLogByIdFileReturnService service, [FromRoute] Guid id)
+        public async Task<IActionResult> ConvertOriginalLogByIdFileReturn([FromServices] IConvertOriginalLogByIdFileReturnUseCase service, [FromRoute] Guid id)
         {
             var result = await service.ExecuteAsync(id);
 
@@ -168,13 +168,32 @@ namespace CDNConverter.API.Controllers
         }
 
         /// <summary>
+        /// Busca um log "AGORA" no diretorio por identificador
+        /// </summary>
+        /// <param name="id">Identificador "AGORA"</param>
+        /// <returns>Retorna um arquivo .txt de log "AGORA"</returns>
+        [HttpGet("AGORA/file/{id}")]
+        [Produces(typeof(byte[]))]
+        [ProducesResponseType(typeof(NotFoundObjectResult), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(BadRequestObjectResult), StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> GetConvertedSavedLogFileById([FromServices] IGetConvertedLogFileByIdUseCase service, [FromRoute] Guid id)
+        {
+            var result = await service.ExecuteAsync(id);
+
+            if (result == null)
+                return NotFound(ResourceResponseMessages.NOTFOUND_LOG);
+
+            return File(result, "text/plain", $"{id}_Converted.txt");
+        }
+
+        /// <summary>
         /// Busca todos os arquivos do diretorio no formato "AGORA"
         /// </summary>
         /// <returns>Retorna um arquivo zip de logs "AGORA"</returns>
-        [HttpGet("convert/file")]
+        [HttpGet("AGORA/file")]
         [Produces(typeof(byte[]))]
         [ProducesResponseType(typeof(NotFoundObjectResult), StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetAllConvertedSavedLogsFiles([FromServices] IGetAllConvertedLogsFilesService service)
+        public async Task<IActionResult> GetAllConvertedSavedLogsFiles([FromServices] IGetAllConvertedLogsFilesUseCase service)
         {
             var result = await service.ExecuteAsync();
 
@@ -188,10 +207,10 @@ namespace CDNConverter.API.Controllers
         /// Busca todos os logs da base no formato "AGORA"
         /// </summary>
         /// <returns>Retorna uma lista de logs "AGORA"</returns>
-        [HttpGet("convert")]
+        [HttpGet("AGORA")]
         [Produces(typeof(IList<ResponseConvertedLogJson>))]
         [ProducesResponseType(typeof(NotFoundObjectResult), StatusCodes.Status404NotFound)]
-        public IActionResult GetAllConvertedAndOriginalLog([FromServices] IGetAllConvertedAndOriginalLogsService service)
+        public IActionResult GetAllConvertedAndOriginalLog([FromServices] IGetAllConvertedAndOriginalLogsUseCase service)
         {
             var result = service.Execute();
 
@@ -205,11 +224,11 @@ namespace CDNConverter.API.Controllers
         /// </summary>
         /// <param name="id">Identificador "AGORA"</param>
         /// <returns>Retorna um log "AGORA" e "MINHA CDN"</returns>
-        [HttpGet("convert/{id}")]
+        [HttpGet("AGORA/{id}")]
         [Produces(typeof(ResponseConvertedLogJson))]
         [ProducesResponseType(typeof(NotFoundObjectResult), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(BadRequestObjectResult), StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> GetConvertedAndOriginalLogById([FromServices] IGetConvertedAndOriginalLogByIdService service, [FromRoute] Guid id)
+        public async Task<IActionResult> GetConvertedAndOriginalLogById([FromServices] IGetConvertedAndOriginalLogByIdUseCase service, [FromRoute] Guid id)
         {
             var result = await service.ExecuteAsync(id);
 

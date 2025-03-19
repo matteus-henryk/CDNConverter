@@ -11,12 +11,12 @@ namespace CDNConverted.Tests.Application
 {
     public class GetOriginalLogByIdServiceTest : ServicesBaseTests
     {
-        private GetOriginalLogByIdService _service;
+        private GetOriginalLogByIdUseCase _service;
 
         [Fact]
         public async Task When_GetOriginalLogByIdService_Rerturn_Value()
         {
-            _service = new GetOriginalLogByIdService(_logReadOnlyRepository.Object);
+            _service = new GetOriginalLogByIdUseCase(_logReadOnlyRepository.Object);
 
             var id = Guid.NewGuid();
 
@@ -31,7 +31,7 @@ namespace CDNConverted.Tests.Application
         [Fact]
         public async Task When_GetOriginalLogByIdService_Rerturn_Null()
         {
-            _service = new GetOriginalLogByIdService(_logReadOnlyRepository.Object);
+            _service = new GetOriginalLogByIdUseCase(_logReadOnlyRepository.Object);
 
             var id = Guid.NewGuid();
 
@@ -46,7 +46,7 @@ namespace CDNConverted.Tests.Application
         [Fact]
         public async Task When_GetOriginalLogByIdService_Id_Is_Empty()
         {
-            _service = new GetOriginalLogByIdService(_logReadOnlyRepository.Object);
+            _service = new GetOriginalLogByIdUseCase(_logReadOnlyRepository.Object);
 
             var id = Guid.Empty;
 
