@@ -8,5 +8,6 @@ namespace CDNConverter.API.Domain.Interfaces.Repositories
         Task<byte[]> GetAllOriginalLogs();
         Task<byte[]> GetOriginalLogById(Guid id);
         Task<byte[]> GetAllConvertedLogs();
+        Task<byte[]> GetConvertedLogById(Guid id);
     }
 }

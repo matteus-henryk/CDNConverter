@@ -44,6 +44,12 @@ namespace CDNConverter.API.Application.UseCases
             return new ResponseConvertedLogJson
             {
                 IdConvertedLog = convertedLog.Id,
+                OriginalLog = new ResponseOriginalLogJson
+                {
+                    OriginalLogId = originalLog.Id,
+                    CreatedOnOriginalLog = originalLog.CreatedOn,
+                    OriginalLogPath = originalLog.OriginalLogPath,
+                },
                 PathConvertedLog = convertedLog.ConvertedLogPath
             };
         }

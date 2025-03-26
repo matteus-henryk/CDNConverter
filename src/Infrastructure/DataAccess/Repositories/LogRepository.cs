@@ -39,7 +39,7 @@ namespace CDNConverter.API.Infrastructure.DataAccess.Repositories
 
         public IList<ConvertedLog> GetAllConvertedLogs()
         {
-            return _context.ConvertedLogs.ToList();
+            return _context.ConvertedLogs.Include(c => c.OriginalLog).ToList();
         }
 
         public async Task<ConvertedLog> GetConvertedLogById(Guid id)

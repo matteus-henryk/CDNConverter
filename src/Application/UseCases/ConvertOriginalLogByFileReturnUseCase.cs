@@ -12,14 +12,14 @@ namespace CDNConverter.API.Application.UseCases
     {
         private readonly ILogWriteOnlyRepository _logWriteOnlyRepository;
         private readonly IUnitOfWork _unitOfWork;
-        private readonly ICreateOriginalLogUseCase _createOriginalLogService;
+        private readonly ICreateOriginalLogUseCase _createOriginalLogUseCase;
         private readonly ILogDirectoryWriteOnlyRepository _logDirectoryWriteOnlyRepository;
 
-        public ConvertOriginalLogByFileReturnUseCase(ILogWriteOnlyRepository logWriteOnlyRepository, IUnitOfWork unitOfWork, ICreateOriginalLogUseCase createOriginalLogService, ILogDirectoryWriteOnlyRepository logDirectoryWriteOnlyRepository)
+        public ConvertOriginalLogByFileReturnUseCase(ILogWriteOnlyRepository logWriteOnlyRepository, IUnitOfWork unitOfWork, ICreateOriginalLogUseCase createOriginalLogUseCase, ILogDirectoryWriteOnlyRepository logDirectoryWriteOnlyRepository)
         {
             _logWriteOnlyRepository = logWriteOnlyRepository;
             _unitOfWork = unitOfWork;
-            _createOriginalLogService = createOriginalLogService;
+            _createOriginalLogUseCase = createOriginalLogUseCase;
             _logDirectoryWriteOnlyRepository = logDirectoryWriteOnlyRepository;
         }
 
@@ -27,9 +27,7 @@ namespace CDNConverter.API.Application.UseCases
         {
             await file.ValidateAsync();
 
-            var originalLog = await _createOriginalLogService.ExecuteAsync(file);
-
-            var convertedLogDirectory = $"{Directory.GetCurrentDirectory()}\\Uploads\\ConvertedLogs";
+            var originalLog = await _createOriginalLogUseCase.ExecuteAsync(file);
 
             byte[] fileByte;
 

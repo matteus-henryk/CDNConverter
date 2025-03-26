@@ -19,7 +19,7 @@ namespace CDNConverter.API.Application.UseCases
         {
             await id.ValidateAsync();
 
-            return await _logDirectoryReadOnlyRepository.GetOriginalLogById(id);
+            return await _logDirectoryReadOnlyRepository.GetConvertedLogById(id);
         }
     }
 }
