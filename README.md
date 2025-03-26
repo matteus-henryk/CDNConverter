@@ -2,9 +2,11 @@
 ### Essa aplicação usa as seguintes tecnologias: .NET Core 2.1, Entity Framework Core, SQL Server, XUnit e Moq  🛠
 A aplicação foi construida com conceitos de Clean Architecture, SOLID e POO
 Essa aplicação foi construida para converter logs do formato "MINHA CDN" para "AGORA"
+
 #### Requisitos ✅
 
 | ------------- | -------------- |
+
 | .NET Core 2.1     | Para implantação local |
 | Visual Studio 2022     | Para desenvolvimento e build |
 | Entity Framework Core 2.1.1   | Para acesso ao banco de dados SQL Server |
@@ -13,14 +15,15 @@ Essa aplicação foi construida para converter logs do formato "MINHA CDN" para 
 | Moq 4.10.1    | Mocking de serviços e dependências |
 | xUnit 2.4.1    | Framework de testes |
 | SQL Server    | Banco de dados utilizado |
-|Docker-Compose   | para virtualização e orquestração |
+| Docker-Compose   | para virtualização e orquestração |
 
 #### Funcionalidades  ✅
 
 | ------------- | -------------- |
-| ✅     | Salvar log "MINHA CDN" |
-| ✅    | Converter log "MINHA CDN" para "AGORA" por um arquivo .txt ou identificador existente na base |
-| ✅    | Retornar logs "MINHA CDN" informações do banco ou arquivo .txt |
+
+| ✅ | Salvar log "MINHA CDN" |
+| ✅ | Converter log "MINHA CDN" para "AGORA" por um arquivo .txt ou identificador existente na base |
+| ✅ | Retornar logs "MINHA CDN" informações do banco ou arquivo .txt |
 | ✅ | Retornar logs "AGORA" informações do banco ou arquivo .txt |
 | ✅ | Retornar logs "AGORA" e "MINHA CDN" por identificador "AGORA" |
 
