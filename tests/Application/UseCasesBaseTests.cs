@@ -3,11 +3,11 @@ using Moq;
 
 namespace CDNConverted.Tests.Application
 {
-    public class ServicesBaseTests
+    public class UseCasesBaseTests
     {
         internal readonly Mock<ILogReadOnlyRepository> _logReadOnlyRepository;
 
-        public ServicesBaseTests()
+        public UseCasesBaseTests()
         {
             _logReadOnlyRepository = new Mock<ILogReadOnlyRepository>();
         }

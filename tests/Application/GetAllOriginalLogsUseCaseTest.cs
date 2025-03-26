@@ -1,4 +1,4 @@
-﻿using CDNConverter.API.Application.Services;
+﻿using CDNConverter.API.Application.UseCases;
 using CDNConverter.API.Domain.Entities;
 using CDNConverter.API.Shared.Comunication;
 using FluentAssertions;
@@ -7,32 +7,32 @@ using Xunit;
 
 namespace CDNConverted.Tests.Application
 {
-    public class GetAllOriginalLogsServiceTest : ServicesBaseTests
+    public class GetAllOriginalLogsUseCaseTest : UseCasesBaseTests
     {
-        private GetAllOriginalLogsUseCase _service;
+        private GetAllOriginalLogsUseCase _useCase;
 
         [Fact]
-        public void When_GetAllOriginalLogsServiceTest_Should_Return_List()
+        public void When_GetAllOriginalLogsUseCaseTest_Should_Return_List()
         {
-            _service = new GetAllOriginalLogsUseCase(_logReadOnlyRepository.Object);
+            _useCase = new GetAllOriginalLogsUseCase(_logReadOnlyRepository.Object);
 
             _logReadOnlyRepository.Setup(repo => repo.GetAllOriginalsLogs())
                 .Returns(new List<OriginalLog>());
 
-            var result = _service.Execute();
+            var result = _useCase.Execute();
 
             result.Should().BeOfType<List<ResponseOriginalLogJson>>();
         }
 
         [Fact]
-        public void When_GetAllOriginalLogsServiceTest_Should_Return_Null()
+        public void When_GetAllOriginalLogsUseCaseTest_Should_Return_Null()
         {
-            _service = new GetAllOriginalLogsUseCase(_logReadOnlyRepository.Object);
+            _useCase = new GetAllOriginalLogsUseCase(_logReadOnlyRepository.Object);
 
             _logReadOnlyRepository.Setup(repo => repo.GetAllOriginalsLogs())
                 .Returns((List<OriginalLog>)null);
 
-            var result = _service.Execute();
+            var result = _useCase.Execute();
 
             result.Should().BeNullOrEmpty();
         }

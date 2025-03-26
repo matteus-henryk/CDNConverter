@@ -23,23 +23,23 @@ namespace CDNConverted.Tests.Controllers
         {
             _controller = new LogsController();
 
-            _getAllOriginalLogsService.Setup(service => service.Execute())
+            _getAllOriginalLogsUseCase.Setup(service => service.Execute())
                 .Returns(new List<ResponseOriginalLogJson>());
 
-            var result = _controller.GetAllOriginalSavedLogs(_getAllOriginalLogsService.Object);
+            var result = _controller.GetAllOriginalSavedLogs(_getAllOriginalLogsUseCase.Object);
 
             result.Should().BeOfType(typeof(OkObjectResult));
         }
 
         [Fact]
-        public void When_GetAllOriginalSavedLogs_Service_Return_Null_Should_Be_NotFound()
+        public void When_GetAllOriginalSavedLogs_UseCase_Return_Null_Should_Be_NotFound()
         {
             _controller = new LogsController();
 
-            _getAllOriginalLogsService.Setup(service => service.Execute())
+            _getAllOriginalLogsUseCase.Setup(service => service.Execute())
                 .Returns((List<ResponseOriginalLogJson>)null);
 
-            var result = _controller.GetAllOriginalSavedLogs(_getAllOriginalLogsService.Object);
+            var result = _controller.GetAllOriginalSavedLogs(_getAllOriginalLogsUseCase.Object);
 
             result.Should().BeOfType(typeof(NotFoundObjectResult));
         }
@@ -54,10 +54,10 @@ namespace CDNConverted.Tests.Controllers
             _controller = new LogsController();
             var id = Guid.NewGuid();
 
-            _getOriginalLogByIdService.Setup(service => service.ExecuteAsync(id))
+            _getOriginalLogByIdUseCase.Setup(service => service.ExecuteAsync(id))
                 .ReturnsAsync(new ResponseOriginalLogJson());
 
-            var result =  await _controller.GetOriginalLogById(_getOriginalLogByIdService.Object, id);
+            var result =  await _controller.GetOriginalLogById(_getOriginalLogByIdUseCase.Object, id);
 
             result.Should().BeOfType<OkObjectResult>();
         }
@@ -68,10 +68,10 @@ namespace CDNConverted.Tests.Controllers
             _controller = new LogsController();
             var id = Guid.NewGuid();
 
-            _getOriginalLogByIdService.Setup(service => service.ExecuteAsync(id))
+            _getOriginalLogByIdUseCase.Setup(service => service.ExecuteAsync(id))
                 .ReturnsAsync((ResponseOriginalLogJson)null);
 
-            var result = await _controller.GetOriginalLogById(_getOriginalLogByIdService.Object, id);
+            var result = await _controller.GetOriginalLogById(_getOriginalLogByIdUseCase.Object, id);
 
             result.Should().BeOfType<NotFoundObjectResult>();
         }
@@ -82,10 +82,10 @@ namespace CDNConverted.Tests.Controllers
             _controller = new LogsController();
             var id = Guid.Empty;
 
-            _getOriginalLogByIdService.Setup(service => service.ExecuteAsync(id))
+            _getOriginalLogByIdUseCase.Setup(service => service.ExecuteAsync(id))
                 .ThrowsAsync(new BadRequestException(new List<string> { ResourceMessagesExceptions.EMPYT_IDENTIFIER }));
 
-            Func<Task> result = async () => await _controller.GetOriginalLogById(_getOriginalLogByIdService.Object, id);
+            Func<Task> result = async () => await _controller.GetOriginalLogById(_getOriginalLogByIdUseCase.Object, id);
 
             await result.Should().ThrowAsync<BadRequestException>();
         }

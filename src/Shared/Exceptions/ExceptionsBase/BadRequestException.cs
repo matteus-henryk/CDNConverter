@@ -4,7 +4,7 @@ namespace CDNConverter.API.Shared.Exceptions.ExceptionsBase
 {
     public class BadRequestException : CDNConverterException
     {
-        public BadRequestException(IList<string> errorsMessages)
+        public BadRequestException(IList<string> errorsMessages) : base(string.Empty)
         {
             ErrorsMessages = errorsMessages;
         }
