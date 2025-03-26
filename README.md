@@ -1,71 +1,50 @@
-# CDNConverter API 
+# CDNConverter API - Documentação
 
-### Essa aplicação usa as seguintes tecnologias: .NET Core 2.1, Entity Framework Core, SQL Server, XUnit e Moq  🛠
-
-A aplicação foi construida com conceitos de Clean Architecture, SOLID e POO
-
-Essa aplicação foi construida para converter logs do formato "MINHA CDN" para "AGORA"
-
-
-#### Requisitos ✅
-
-| Required  | Usage |
-| ------------- | -------------- |
-| .NET Core 2.1     | Para implantação local |
-| Visual Studio 2022     | Para desenvolvimento e build |
-| Entity Framework Core 2.1.1   | Para acesso ao banco de dados SQL Server |
-| Swashbuckle 5.0.0   | Documentação da API com Swagger |
-| FluentValidation 8.6.3   | Framework para validações |
-| Moq 4.10.1    | Mocking de serviços e dependências |
-| xUnit 2.4.1    | Framework de testes |
-| SQL Server    | Banco de dados utilizado |
-
-#### Funcionalidades  ✅
-
-| Status | Requisitos |
-| ------------- | -------------- |
-| ✅     | Salvar log "MINHA CDN" |
-| ✅    | Converter log "MINHA CDN" para "AGORA" por um arquivo .txt ou identificador existente na base |
-| ✅    | Retornar logs "MINHA CDN" informações do banco ou arquivo .txt |
-| ✅ | Retornar logs "AGORA" informações do banco ou arquivo .txt |
-| ✅ | Retornar logs "AGORA" e "MINHA CDN" por identificador "AGORA" |
-
-
-## Rodando a aplicação 
-
-## 1. Clone o repositorio
-```bash
-git clone https://github.com/matteus-henryk/CDNConverter.git
-cd CDNConverter
-```
-
-## 2. No arquivo `appsettings.json`, adicione a seguinte configuração para a connectionString:
-
-```json
-{
-  "ConnectionStrings": {
-    "DefaultConnection": "Server=your-database-server;Database=your-database-name;User Id=your-username;Password=your-password;"
-  }
-}
-```
-
-## 3. Compile e execute a aplicação:
-```bash
-dotnet run --project CDNConverter.API
-```
-
-## 4. Aplicar as migrations
-```bash
-dotnet ef database update 
-```
-
-## 5. Acesse a documentação Postman:
-```bash
-https://documenter.getpostman.com/view/12668698/2sAYkErfZ4
-```
-Se a aplicação estiver rodando corretamente, você verá a interface do Swagger
-
-Comando para rodar testes:
-```bash
-dotnet test
-```
+```plaintext
+▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+█                                       █
+█  🚀 CDNConverter API - Conversor de   █
+█  Logs (MINHA CDN → AGORA)             █
+█                                       █
+█  🔧 TECNOLOGIAS:                      █
+█  • .NET Core 2.1                      █
+█  • Entity Framework Core 2.1.1        █
+█  • SQL Server                         █
+█  • Swashbuckle 5.0.0 (Swagger)        █
+█  • FluentValidation 8.6.3             █
+█  • xUnit + Moq (Testes)               █
+█                                       █
+█  🏗 ARQUITETURA:                      █
+█  • Clean Architecture                 █
+█  • Princípios SOLID                   █
+█  • Programação Orientada a Objetos    █
+█                                       █
+█  ✅ REQUISITOS:                       █
+█  • Docker Desktop                     █
+█  • .NET Core 2.1 SDK (para dev local) █
+█  • Visual Studio 2022 (recomendado)   █
+█  • 4GB+ RAM disponível                █
+█                                       █
+█  🛠 FUNCIONALIDADES:                  █
+█  • Upload de logs via arquivo .txt    █
+█  • Conversão entre formatos           █
+█  • Consulta por ID                    █
+█  • Documentação Swagger/Postman       █
+█                                       █
+█  🐳 DEPLOY COM DOCKER:                █
+█  1. git clone [URL_DO_REPOSITORIO]    █
+█  2. cd CDNConverter                   █
+█  3. docker-compose up -d              █
+█                                       █
+█  ⚙️ CONFIGURAÇÃO:                    █
+█  • Migrações automáticas no Program   █
+█  • Connection String pré-configurada  █
+█    (consulte o arquivo .appsettings)  █
+█                                       █
+█  📚 DOCUMENTAÇÃO:                     █
+█  • Coleção Postman disponível em:     █
+█    /docs/postman-collection.json      █
+█  • Swagger UI: http://localhost:5000/ █
+█    swagger                            █
+█                                       █
+▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
