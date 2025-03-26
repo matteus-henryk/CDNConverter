@@ -1,0 +1,35 @@
+services:
+  cdnDb:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: cdn_db
+    ports:
+        - "1433:1433"
+    environment:
+        SA_PASSWORD: "@Password123"
+        ACCEPT_EULA: "Y"
+    volumes:
+        - cdn_data:/var/opt/mssql 
+    networks:
+        - backend-network
+    restart: always
+
+  cdnconverter.api:
+    image: cdnconverterapi
+    build:
+      context: .
+      dockerfile: src/Dockerfile
+    ports:
+        - "5000:80"
+    depends_on:
+        - cdnDb
+    networks:
+        - backend-network
+    environment:
+        - ConnectionStrings__DefaultConnection=Server=cdnDb;Database=CDNConverterDb;User Id=sa;Password=@Password123;Encrypt=False
+    restart: always
+
+volumes:
+  cdn_data:
+networks:
+    backend-network:
+        driver: bridge  

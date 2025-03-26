@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CDNConverter.API", "src\CDN
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CDNConverter.Tests", "tests\CDNConverter.Tests.csproj", "{E3AD7D03-B66B-4550-BED0-44C6E1F4FE4B}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{12CB7EB6-FB7F-46D6-81AB-7199B1121CCB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{E3AD7D03-B66B-4550-BED0-44C6E1F4FE4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E3AD7D03-B66B-4550-BED0-44C6E1F4FE4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E3AD7D03-B66B-4550-BED0-44C6E1F4FE4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12CB7EB6-FB7F-46D6-81AB-7199B1121CCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12CB7EB6-FB7F-46D6-81AB-7199B1121CCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12CB7EB6-FB7F-46D6-81AB-7199B1121CCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12CB7EB6-FB7F-46D6-81AB-7199B1121CCB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

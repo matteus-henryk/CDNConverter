@@ -61,6 +61,15 @@ namespace CDNConverter.API.Shared.Comunication {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Unable to apply migrations!.
+        /// </summary>
+        public static string MIGRATIONS_ERROR {
+            get {
+                return ResourceManager.GetString("MIGRATIONS_ERROR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The log was not found!.
         /// </summary>
         public static string NOTFOUND_LOG {
